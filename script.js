@@ -181,7 +181,7 @@ document.addEventListener('DOMContentLoaded', () => {
             messageDisplay.textContent = `You win! The pizza flavor was "${correctWord}".`;
             endGame(true);
         } else if (incorrectGuesses >= maxIncorrectGuesses) {
-            messageDisplay.textContent = `Game Over! The pizza flavor was "${correctWord}". The answer was "${correctWord}".`;
+            messageDisplay.textContent = `Game Over! The pizza flavor was "${correctWord}".`;
             endGame(false);
         }
     }
