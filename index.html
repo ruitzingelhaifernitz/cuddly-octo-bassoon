@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIDL Pizza Flavor Guesser</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <h1>LIDL Pizza Flavor Guesser</h1>
+        <p class="subtitle">Guess the hidden LIDL frozen pizza flavor!<br>(hint, it may not be what's pictured)</p>
+
+        <div class="pizza-visual-container">
+            <img id="pizzaIndicator" src="pizza-full.png" alt="Pizza slices remaining" class="pizza-image">
+        </div>
+
+        <p id="attemptsLeft" class="status-text">Incorrect guesses left: 8</p>
+        <p id="wordDisplay" class="word-display"></p>
+        <p id="message" class="game-message"></p>
+
+        <div class="input-section">
+            <input type="text" id="letterInput" maxlength="1" placeholder="Type a letter..." autocomplete="off">
+            <button id="guessButton">Guess Letter</button>
+        </div>
+
+        <div id="keyboard" class="keyboard-grid">
+            </div>
+
+        <button id="resetGame" class="reset-button" style="display: none;">Play Again</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

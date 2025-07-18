@@ -1,0 +1,227 @@
+body {
+    font-family: 'Inter', Arial, sans-serif; /* macOS-like font */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f0f2f5; /* Light grey background */
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+.game-container {
+    background-color: #ffffff; /* White background for the card */
+    padding: 30px 40px;
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); /* Soft shadow */
+    text-align: center;
+    width: 95%;
+    max-width: 600px; /* Wider for keyboard */
+    border: 1px solid #e0e0e0; /* Subtle border */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1 {
+    color: #333333;
+    font-weight: 600; /* Semibold */
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666666;
+    margin-bottom: 25px;
+    font-size: 0.95em;
+}
+
+/* Pizza Visuals */
+.pizza-visual-container {
+    width: 150px; /* Consistent size for your images */
+    height: 150px;
+    margin-bottom: 25px;
+    display: flex; /* To center the image if smaller */
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Just in case */
+    border-radius: 50%; /* Make the container round if image is not perfectly round */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: add a subtle shadow to the pizza image */
+}
+
+.pizza-image {
+    max-width: 100%;
+    max-height: 100%;
+    display: block; /* Remove extra space below image */
+    border-radius: 50%; /* Ensure the image itself is round if not already */
+}
+
+
+/* Game Info Text */
+.status-text {
+    font-weight: 500;
+    color: #555555;
+    margin-bottom: 10px;
+}
+
+.word-display {
+    font-family: 'Courier New', monospace; /* Monospace for word display for consistent character width */
+    font-size: 2em;
+    letter-spacing: 0.1em; /* Small, consistent space between letters */
+    margin-bottom: 25px;
+    color: #222222;
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    word-break: break-word; /* Allows long words to break */
+    white-space: normal; /* Allow normal wrapping */
+}
+
+.game-message {
+    min-height: 20px; /* Reserve space to prevent layout shift */
+    margin-top: 15px;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+/* Input Section */
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    width: 100%;
+    max-width: 300px;
+}
+
+#letterInput {
+    flex-grow: 1;
+    padding: 12px 15px;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    font-size: 1.1em;
+    font-family: 'Inter', Arial, sans-serif;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+#letterInput:focus {
+    border-color: #007aff; /* macOS blue focus */
+    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.2);
+}
+
+button {
+    background-color: #007aff; /* macOS blue */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    -webkit-appearance: none; /* Remove default button styles for iOS */
+}
+
+button:hover {
+    background-color: #005bb5;
+}
+
+button:active {
+    transform: translateY(1px); /* Slight press effect */
+}
+
+button:disabled {
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+}
+
+/* Keyboard */
+.keyboard-grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* 10 columns for QWERTY row length */
+    gap: 8px;
+    width: 100%;
+    max-width: 550px; /* Adjust as needed */
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f0f2f5;
+    border-radius: 10px;
+}
+
+.keyboard-grid button {
+    padding: 10px 5px; /* Adjust padding for smaller buttons */
+    font-size: 1em;
+    background-color: #e8e8e8; /* Default key color */
+    color: #333333;
+    border: 1px solid #dcdcdc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.keyboard-grid button:hover:not(:disabled) {
+    background-color: #dcdcdc;
+}
+
+.keyboard-grid button.correct {
+    background-color: #4CAF50; /* Green for correct */
+    color: white;
+}
+
+.keyboard-grid button.incorrect {
+    background-color: #f44336; /* Red for incorrect */
+    color: white;
+}
+
+.keyboard-grid button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* Reset Button */
+.reset-button {
+    background-color: #555555; /* Darker grey for reset */
+    margin-top: 30px;
+    padding: 12px 30px;
+    font-size: 1.1em;
+}
+
+.reset-button:hover {
+    background-color: #333333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+    .game-container {
+        padding: 20px 25px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .word-display {
+        font-size: 1.5em;
+        letter-spacing: 0.05em; /* Slightly less on mobile if needed */
+    }
+
+    .keyboard-grid {
+        grid-template-columns: repeat(auto-fit, minmax(28px, 1fr)); /* More flexible grid on small screens */
+        gap: 6px;
+    }
+
+    .keyboard-grid button {
+        font-size: 0.9em;
+        padding: 8px 3px;
+    }
+
+    .input-section {
+        flex-direction: column;
+        width: 80%;
+        max-width: unset;
+    }
+
+    #letterInput, button {
+        width: 100%;
+    }
+}
